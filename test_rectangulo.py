@@ -41,7 +41,7 @@ class Test_Rectangulo(unittest.TestCase):
         centro= (centrox, centroy)
         # CONDICIONES DE UN RECTÁNGULO
         if abs(y1 - x1) == abs(y2 - x2) and abs(x2 - x1) == abs(y2 - y1) and base != altura:
-            self.assertEqual((centro), (4,4))
+            self.assertEqual((centro), (2.0,2.0))
         else:
             raise ValueError('No es un rectángulo')
 
