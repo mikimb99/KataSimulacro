@@ -38,8 +38,4 @@ class Rectangulo:
         base = abs((self.x2 - self.x1)) or abs(self.y2 - self.y1)
         altura = abs((self.y1 - self.x1) or (self.y2 - self.x2))
         diagonal = math.sqrt(base ** 2 + altura ** 2)
-        # CONDICIONES DE UN RECTÁNGULO
-        if abs(self.y1 - self.x1) == abs(self.y2 - self.x2) and abs(self.x2 - self.x1) == abs(self.y2 - self.y1) and base != altura:
-            return diagonal
-        else:
-            raise Noesrectangulo
+        return diagonal
