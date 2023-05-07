@@ -29,8 +29,21 @@ class Test_Rectangulo(unittest.TestCase):
         else:
             raise ValueError('No es un rectángulo')
 
-
-
+    def test_centro(self):
+        x1 = 0
+        x2 = 4
+        y1 = -2
+        y2 = 2
+        base = abs((x2 - x1)) or abs(y2 - y1)
+        altura = abs((y1 - x1) or (y2 - x2))
+        centrox = (abs(x1) + abs(x2))/2
+        centroy = (abs(y1) + abs(y2))/2
+        centro= (centrox, centroy)
+        # CONDICIONES DE UN RECTÁNGULO
+        if abs(y1 - x1) == abs(y2 - x2) and abs(x2 - x1) == abs(y2 - y1) and base != altura:
+            self.assertEqual((centro), (4,4))
+        else:
+            raise ValueError('No es un rectángulo')
 
 
 if __name__ == '__main__':
