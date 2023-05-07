@@ -22,7 +22,7 @@ class Test_Rectangulo(unittest.TestCase):
         y2 = 2
         base = abs((x2 - x1)) or abs(y2 - y1)
         altura = abs((y1 - x1) or (y2 - x2))
-        perimetro= abs(x1+x2+y1+y2)
+        perimetro= (abs(x1)+abs(x2)+abs(y1)+abs(y2))
         #CONDICIONES DE UN RECTÁNGULO
         if abs(y1 - x1) == abs(y2 - x2) and abs(x2 - x1) == abs(y2 - y1) and base != altura:
             self.assertEqual((perimetro), 8)
