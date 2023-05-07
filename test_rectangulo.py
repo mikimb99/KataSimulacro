@@ -14,7 +14,7 @@ class Test_Rectangulo(unittest.TestCase):
         self.assertEqual(rectangulo.calcular_perimetro(), 8)
 
     def test_centro(self):
-        rectangulo = Rectangulo(0, 4, -2, 2)
+        rectangulo = Rectangulo(1, 4, -2, 2)
         self.assertEqual(rectangulo.calcular_centro(), (2.0, 0.0))
     def test_diagonal(self):
         rectangulo = Rectangulo(0, 4, -2, 2)
