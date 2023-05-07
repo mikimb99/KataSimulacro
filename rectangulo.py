@@ -8,6 +8,7 @@ class Rectangulo:
         self.x2 = x2
         self.y1 = y1
         self.y2 = y2
+        self.comprobar_siesrectangulo()
     def comprobar_siesrectangulo(self):
         base = abs((self.x2 - self.x1)) or abs(self.y2 - self.y1)
         altura = abs((self.y1 - self.x1) or (self.y2 - self.x2))
