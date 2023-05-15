@@ -1,6 +1,7 @@
 import socket
 import time
 
+#FUNCIÓN PARA CONTAR LAS LETRAS A'S EN UN ARCHIVO
 serv_socket= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 12345)
 serv_socket.bind(server_address)
