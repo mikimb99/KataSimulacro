@@ -16,8 +16,10 @@ Hacer los tests correspondientes para comprobar dichos requisitos
 
 TIPS PARA FUTURAS KATAS:
 
--No incluir abs al principio
+1)Hacer el test para 1 solo caso en concreto que funcione
 
--No incluir el raiseValue tan pronto 
+2)Hacer el test para que también permita coordenadas negativas
 
-Así podré hacer más tests y los puedo refactorizar al final 
+3)Hacer el raiseValue y demás excepciones  
+
+4)Realizar el refactor con la condición de comprobar si es rectángulo 
