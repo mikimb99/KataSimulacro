@@ -16,6 +16,12 @@ class Testcuenta_a(unittest.TestCase):
             file.write('aa \n')
         count = funcion.count_a(file_path)
         self.assertEqual(count, 2)
-
+    def test_aMayus(self):
+        funcion = Funcion()
+        file_path = 'test_file.txt'
+        with open(file_path, 'w') as file:
+            file.write('AA \n')
+        count = funcion.count_a(file_path)
+        self.assertEqual(count, 2)
 if __name__ == 'main':
     unittest.main()
