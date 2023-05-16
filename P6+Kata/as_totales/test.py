@@ -8,7 +8,7 @@ class Testcuenta_a(unittest.TestCase):
         with open(file_path, 'w') as file:
             file.write('HI \n')
         count = funcion.count_a(file_path)
-        self.assertEqual(count, 4)
+        self.assertEqual(count, 0)
 
 if __name__ == 'main':
     unittest.main()

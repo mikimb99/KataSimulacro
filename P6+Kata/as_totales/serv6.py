@@ -1,36 +1,50 @@
 import socket
-import time
-from funciones import Funcion
+import sys
 
-#Creamos una instancia de la clase Función
-funcion = Funcion()
-serv_socket= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# crea un socket TCP/IP
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# enlace de socket y puerto
 server_address = ('localhost', 12345)
-serv_socket.bind(server_address)
-serv_socket.listen(1)
-print('Esperando conexiones entrantes...')
+print('Servidor escuchando en el puerto', server_address[1])
+sock.bind(server_address)
+
+# escucha conexiones entrantes
+sock.listen(1)
+
 while True:
-    # espera una conexión entrante
-    client_socket, client_address = serv_socket.accept()
-    print('Conexión entrante de', client_address)
+    # espera a una conexion
+    print('Esperando conexión entrante...')
+    connection, client_address = sock.accept()
 
     try:
-        # recibe el path del archivo del cliente
-        file_path = client_socket.recv(1024).decode()
-        # intenta abrir el archivo especificado por el path, si existe lo lee, sino salta el error
+        print('Conexión entrante de', client_address)
+
+        # recibe los datos del cliente
+        data = connection.recv(1024)
+        file_path = data.decode()
+        print('Archivo recibido:', file_path)
+
+        # procesa los datos del archivo
         with open(file_path, 'r') as file:
-            data = file.read()
-            # Después de leerlo, lo codifica a formato bytes para volverlo a enviar
-            serv_socket.sendall(data.encode())
+            if connection.recv(1024).decode() == "entero":
+                file_content = file.read()
+                a_count = file_content.count('a')
+                print(f"El archivo contiene {a_count} letras 'a'.")
+            else:
+                line_count = 1
+                for line in file:
+                    a_count = line.count('a')
+                    print(f"Línea {line_count}: {a_count}")
+                    line_count += 1
 
-            # Cuenta las letras "a" en el archivo
-            count = funcion.count_a(file_path)
-            # Envía la cuenta de las letras "a" al cliente
-            serv_socket.sendall(str(count).encode())
+        # envía confirmación al cliente
+        connection.sendall(b"Archivo procesado correctamente")
 
-    except FileNotFoundError:
-        client_socket.sendall('El archivo no existe '.encode())
+    except Exception as e:
+        print(e)
 
     finally:
-        # cierra la conexión del cliente
-        client_socket.close()
+        # cierra la conexión
+        connection.close()
+se()
