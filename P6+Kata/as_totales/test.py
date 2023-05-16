@@ -9,6 +9,13 @@ class Testcuenta_a(unittest.TestCase):
             file.write('HI \n')
         count = funcion.count_a(file_path)
         self.assertEqual(count, 0)
+    def test_aminuscula(self):
+        funcion = Funcion()
+        file_path = 'test_file.txt'
+        with open(file_path, 'w') as file:
+            file.write('aa \n')
+        count = funcion.count_a(file_path)
+        self.assertEqual(count, 1)
 
 if __name__ == 'main':
     unittest.main()
