@@ -16,3 +16,11 @@ class Funcion:
             for line in file:
                 count = line.count('a')+ line.count('A')
                 line_count += 1
+    def palindromas(self,file_path):
+        with open(file_path,'r') as file:
+            palabras =file.read().split()
+            palindromas = []
+            for palabra in palabras:
+                if palabra == palabra[::-1]:
+                    palindromas.append(palabra)
+            return palindromas

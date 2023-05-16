@@ -6,7 +6,7 @@ from funciones import Funcion
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 12345)
 filepath = input('Introduce el path del fichero: ')
-tipo_count = input('Si desea contar todas las as del archivo("entero") si desea por línea ("linea")')
+tipo_count = input('Si desea contar todas las as del archivo("entero") si desea por línea ("linea") o si deseo buscar palindromas ("palindromas"): ')
 
 # Verifica si el archivo existe
 try:
@@ -49,6 +49,11 @@ try:
         # Imprime el número de letras 'a' en cada línea
         for i, count in enumerate(line_a_count):
             print(f"Línea {i+1}: {count}")
+    elif tipo_count == 'palindromas':
+        palindromas = func.palindromas(filepath)
+        print(f"El archivo contiene {len(palindromas)} palabras palíndromas: ")
+        for p in palindromas:
+            print(p)
 
 finally:
     time.sleep(1)
