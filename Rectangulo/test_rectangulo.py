@@ -1,7 +1,6 @@
 import unittest
-import math
-from rectangulo import Rectangulo
-from rectangulo import Noesrectangulo
+from KataSimulacro.Rectangulo.rectangulo import Rectangulo
+from KataSimulacro.Rectangulo.rectangulo import Noesrectangulo
 class Test_Rectangulo(unittest.TestCase):
 #X1 X2 Y1 Y2 SON LOS VÉRTICES
     def test_area(self):
