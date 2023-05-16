@@ -47,4 +47,3 @@ while True:
     finally:
         # cierra la conexión
         connection.close()
-se()
