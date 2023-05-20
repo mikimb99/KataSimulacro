@@ -1,5 +1,5 @@
 import socket
-from funciones import  Funcion
+from funciones import Funcion
 # crea un socket TCP/IP
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 funcion = Funcion()
